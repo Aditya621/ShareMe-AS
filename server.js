@@ -5,9 +5,20 @@ const express = require("express");
 const app = express();
 const path = require("path");
 const PORT = process.env.PORT || 5000;
+const cors = require("cors");
 
 const connectDB = require("./config/db");
 connectDB();
+
+//cors
+
+const corsOptions = {
+  origin: process.env.ALLOWED_CLIENTS.split(","),
+  //['https://localhost:3000', 'https://localhost:5000',https://localhost:3300]
+};
+
+//" use "because it is a middleware
+app.use(cors(corsOptions));
 
 // if applicaion get any JSON data then they parse it
 app.use(express.json());
