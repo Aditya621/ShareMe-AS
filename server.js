@@ -4,7 +4,7 @@ const express = require("express");
 // const mongoose = require("mongoose");
 const app = express();
 const path = require("path");
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 3000;
 const cors = require("cors");
 
 const connectDB = require("./config/db");
@@ -13,7 +13,8 @@ connectDB();
 //cors
 
 const corsOptions = {
-  origin: process.env.ALLOWED_CLIENTS,
+  // origin: process.env.ALLOWED_CLIENTS,
+  origin: "*",
   //['https://localhost:3000', 'https://localhost:5000',https://localhost:3300]
 };
 
